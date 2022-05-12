@@ -2,11 +2,7 @@
 
 ## Project Overview
 
-The goal of this project is to operationalize a Microservice API. A pretrained model to predict Boston housing prices is given. 
 
-Original dataset: [the data source site](https://www.kaggle.com/c/boston-housing).
-
-In this project, you will apply the skills you have acquired in this course to operationalize a Machine Learning Microservice API. 
 
 You are given a pre-trained, `sklearn` model that has been trained to predict housing prices in Boston according to several features, such as average rooms in a home and data about highway access, teacher-to-pupil ratios, and so on. You can read more about the data, which was initially taken from Kaggle, on [the data source site](https://www.kaggle.com/c/boston-housing). This project tests your ability to operationalize a Python flask app—in a provided file, `app.py`—that serves out predictions (inference) about housing prices through API calls. This project could be extended to any pre-trained machine learning model, such as those for image recognition and data labeling.
 
@@ -29,14 +25,10 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ## Setup the Environment
 
-* Create a virtualenv with Python 3.7 and activate it. Refer to this link for help on specifying the Python version in the virtualenv. 
+* Create a virtualenv with Python 3.
 ```bash
-python3 -m pip install --user virtualenv
-# You should have Python 3.7 available in your host. 
-# Check the Python path using `which python3`
-# Use a command similar to this one:
-python3 -m virtualenv --python=<path-to-Python3.7> .devops
-source .devops/bin/activate
+python3 -m venv ~/.devops
+source ~/.devops/bin/activate
 ```
 * Run `make install` to install the necessary dependencies
 
@@ -46,9 +38,31 @@ source .devops/bin/activate
 2. Run in Docker:  `./run_docker.sh`
 3. Run in Kubernetes:  `./run_kubernetes.sh`
 
+
+### Prediction
+1. Build container first: `./run_docker.sh`
+2. Make a prediction: `./make_prediction.sh`
+
 ### Kubernetes Steps
 
-* Setup and Configure Docker locally
-* Setup and Configure Kubernetes locally
+* Setup and Configure Docker 
+* Setup and Configure Kubernetes
 * Create Flask app in Container
 * Run via kubectl
+
+
+## Files
+
+| File                 | Purpose                                                                                                                   |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| app.py               | The main python flask application                                                                                         | 
+| Dockerfile           | Dockerfile to deploy the application, install python requirements, expose port 80 and launch the application              | 
+| make_predication.sh  | Bash script for testing the model with a curl POST call to port 8000                                                      |
+| Makefile             | Makefile to setup, install python requirements, lint the Dockerfile with hadolint and lint the python script using pylint |
+| requirements.txt     | List of python libraries used by the application                                                                          | 
+| run_docker.sh        | Bash script to build and launch the docker image                                                                          |
+| run_kubernetes.sh    | Bash script to deploy the docker image from dockerhub to a local kubernetes cluster                                       |
+| upload_docker.sh     | Bash script to push the built docker image to dockerhub                                                                   |
+| .circleci/config.yml | Config file for circleci build service                                                                                    |
+| output_txt_files/    | Contains two files `docker_out.txt` and `kubernetes_out.txt` showing the successful output of task 3 and task 6           |
+
