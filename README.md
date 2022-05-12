@@ -30,39 +30,37 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 python3 -m venv ~/.devops
 source ~/.devops/bin/activate
 ```
-* Run `make install` to install the necessary dependencies
-
+* To install the dependencies: `make install`
+* To lint: 'make lint`
 ### Running `app.py`
-
-1. Standalone:  `python app.py`
-2. Run in Docker:  `./run_docker.sh`
-3. Run in Kubernetes:  `./run_kubernetes.sh`
 
 
 ### Prediction
-1. Build container first: `./run_docker.sh`
-2. Make a prediction: `./make_prediction.sh`
+1. To build container first: `./run_docker.sh`
+2. To make a prediction: `./make_prediction.sh`
+3. To upload to Docker hub: `./upload_docker.sh`
 
 ### Kubernetes Steps
 
 * Setup and Configure Docker 
-* Setup and Configure Kubernetes
+* Setup and Configure Kubernetes by installing and starting minikube
 * Create Flask app in Container
 * Run via kubectl
 
 
 ## Files
 
-| File                 | Purpose                                                                                                                   |
+| Files                | Content                                                                                                                   |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| app.py               | The main python flask application                                                                                         | 
-| Dockerfile           | Dockerfile to deploy the application, install python requirements, expose port 80 and launch the application              | 
-| make_predication.sh  | Bash script for testing the model with a curl POST call to port 8000                                                      |
-| Makefile             | Makefile to setup, install python requirements, lint the Dockerfile with hadolint and lint the python script using pylint |
+| app.py               | Flask application                                                                                                         | 
+| Dockerfile           | Dockerfile for deploying the application                                                                                  | 
+| make_predication.sh  | Bash script for testing the model                                                                                         |
+| Makefile             | Makefile for installing python requirements, linting the Dockerfile with hadolint and linting the python script           |
 | requirements.txt     | List of python libraries used by the application                                                                          | 
-| run_docker.sh        | Bash script to build and launch the docker image                                                                          |
-| run_kubernetes.sh    | Bash script to deploy the docker image from dockerhub to a local kubernetes cluster                                       |
-| upload_docker.sh     | Bash script to push the built docker image to dockerhub                                                                   |
+| run_docker.sh        | Bash script for launching the docker image                                                                                |
+| run_kubernetes.sh    | Bash script for deploying the docker image from dockerhub to a kubernetes cluster                                         |
+| upload_docker.sh     | Bash script for pushing the built docker image to dockerhub                                                               |
 | .circleci/config.yml | Config file for circleci build service                                                                                    |
-| output_txt_files/    | Contains two files `docker_out.txt` and `kubernetes_out.txt` showing the successful output of task 3 and task 6           |
+| docker_out.txt       | Task 3                                                                                                                    |
+| kubernetes_out.txt   | Task 6                                                                                                                    |
 
