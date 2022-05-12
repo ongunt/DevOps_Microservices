@@ -55,7 +55,7 @@ source ~/.devops/bin/activate
 | app.py               | Flask application                                                                                                         | 
 | Dockerfile           | Dockerfile for deploying the application                                                                                  | 
 | make_predication.sh  | Bash script for testing the model                                                                                         |
-| Makefile             | Makefile for installing python requirements, linting the Dockerfile with hadolint and linting the python script           |
+| Makefile             | Makefile for installing python requirements, linting the Dockerfile and the python script                                 |
 | requirements.txt     | List of python libraries used by the application                                                                          | 
 | run_docker.sh        | Bash script for launching the docker image                                                                                |
 | run_kubernetes.sh    | Bash script for deploying the docker image from dockerhub to a kubernetes cluster                                         |
