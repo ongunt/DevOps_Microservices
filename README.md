@@ -31,11 +31,9 @@ python3 -m venv ~/.devops
 source ~/.devops/bin/activate
 ```
 * To install the dependencies: `make install`
-* To lint: 'make lint`
-### Running `app.py`
+* To lint: `make lint`
 
-
-### Prediction
+### Docker Steps
 1. To build container first: `./run_docker.sh`
 2. To make a prediction: `./make_prediction.sh`
 3. To upload to Docker hub: `./upload_docker.sh`
@@ -43,8 +41,10 @@ source ~/.devops/bin/activate
 ### Kubernetes Steps
 
 * Setup and Configure Docker 
-* Setup and Configure Kubernetes by installing and starting minikube
-* Create Flask app in Container
+* Install and run minikube
+* Setup and Configure Kubernetes: `./run_kubernetes`
+* Delete the kubernetes cluster
+* Build Flask app in Container
 * Run via kubectl
 
 
